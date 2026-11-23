@@ -22,7 +22,7 @@ const products = {
     name: "Tuna Nigiri",
     category: "SUSHI FAVORITES",
     image: "/images/nigiri-hero.png",
-    position: "75% center",
+    position: "45% center",
     description:
       "Rich, vibrant tuna served over sushi rice. A timeless Japanese-inspired favorite with a distinctive flavor.",
     highlights: [
@@ -137,14 +137,14 @@ type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-// Generate all nine product pages.
+// Generate all nine product routes.
 export function generateStaticParams() {
   return Object.keys(products).map((slug) => ({
     slug,
   }));
 }
 
-// Keep Suspense for Next.js dynamic route rendering.
+// Suspense supports rendering the dynamic product content.
 export default function ProductDetailPage({
   params,
 }: ProductPageProps) {
@@ -189,17 +189,13 @@ async function ProductContent({
 
       {/* BREADCRUMBS */}
       <div className="mx-auto max-w-[1500px] px-6 pt-8 text-sm text-gray-500 md:px-12">
-
         <Link href="/" className="hover:text-red-600">
           Home
         </Link>
 
         <span className="mx-2">/</span>
 
-        <Link
-          href="/products"
-          className="hover:text-red-600"
-        >
+        <Link href="/products" className="hover:text-red-600">
           Products
         </Link>
 
@@ -208,7 +204,6 @@ async function ProductContent({
         <span className="font-semibold text-gray-900">
           {product.name}
         </span>
-
       </div>
 
       {/* PRODUCT HERO */}
@@ -216,7 +211,6 @@ async function ProductContent({
 
         {/* PRODUCT IMAGE */}
         <div className="overflow-hidden rounded-3xl bg-[#faf8f6] shadow-lg">
-
           <img
             src={product.image}
             alt={product.name}
@@ -225,12 +219,10 @@ async function ProductContent({
             }}
             className="aspect-[5/4] h-full w-full object-cover"
           />
-
         </div>
 
         {/* PRODUCT INFORMATION */}
         <div>
-
           <p className="text-xs font-black tracking-[0.3em] text-red-600">
             {product.category}
           </p>
@@ -246,30 +238,24 @@ async function ProductContent({
 
           {/* PRODUCT HIGHLIGHTS */}
           <div className="mt-9 border-t border-gray-200 pt-7">
-
             <h2 className="text-lg font-black">
               Product Highlights
             </h2>
 
             <ul className="mt-5 space-y-4">
-
               {product.highlights.map((highlight) => (
                 <li
                   key={highlight}
                   className="flex items-center gap-3 text-gray-700"
                 >
-
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-50 font-bold text-red-600">
                     ✓
                   </span>
 
                   {highlight}
-
                 </li>
               ))}
-
             </ul>
-
           </div>
 
           <Link
@@ -278,18 +264,14 @@ async function ProductContent({
           >
             ← Explore More Products
           </Link>
-
         </div>
-
       </section>
 
       {/* RELATED PRODUCTS */}
       <section className="bg-[#fcf8f4] py-20">
-
         <div className="mx-auto max-w-[1500px] px-6 md:px-12">
 
           <div className="text-center">
-
             <p className="text-xs font-black tracking-[0.25em] text-red-600">
               DISCOVER MORE
             </p>
@@ -302,21 +284,17 @@ async function ProductContent({
               Discover more delicious Asian-inspired favorites
               from JF Sushi.
             </p>
-
           </div>
 
           {/* RELATED PRODUCT CARDS */}
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
-
             {relatedProducts.map(([key, item]) => (
               <Link
                 href={`/products/${key}`}
                 key={key}
                 className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
-
                 <div className="aspect-[5/3] overflow-hidden">
-
                   <img
                     src={item.image}
                     alt={item.name}
@@ -326,11 +304,9 @@ async function ProductContent({
                     }}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
-
                 </div>
 
                 <div className="p-6">
-
                   <h3 className="text-xl font-black">
                     {item.name}
                   </h3>
@@ -338,32 +314,24 @@ async function ProductContent({
                   <p className="mt-3 text-sm font-black text-red-600">
                     View Product →
                   </p>
-
                 </div>
-
               </Link>
             ))}
-
           </div>
 
           <div className="mt-12 text-center">
-
             <Link
               href="/products"
               className="inline-flex rounded-full border border-red-600 px-8 py-4 text-sm font-bold text-red-600 transition hover:bg-red-50"
             >
               View All Products →
             </Link>
-
           </div>
-
         </div>
-
       </section>
 
       {/* FOOTER */}
       <footer className="bg-[#171717] px-6 py-10 text-white">
-
         <div className="mx-auto flex max-w-[1500px] flex-col items-center justify-between gap-5 text-center md:flex-row">
 
           <Link href="/" className="text-2xl font-black">
@@ -379,9 +347,7 @@ async function ProductContent({
           </p>
 
         </div>
-
       </footer>
-
     </main>
   );
 }
