@@ -7,7 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-
     sitemap: "https://jf-sushi.vercel.app/sitemap.xml",
   };
 }
