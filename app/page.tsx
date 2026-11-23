@@ -1,6 +1,15 @@
 
 import Link from "next/link";
 
+const websiteStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "JF Sushi",
+  url: "https://jf-sushi.vercel.app",
+  description:
+    "JF Sushi is an established Asian-inspired food business offering sushi, poke bowls, and other food selections for grocery retail and wholesale partners.",
+};
+
 const products = [
   {
     name: "Sushi & Rolls",
@@ -64,14 +73,22 @@ const services = [
 export default function HomePage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-white text-[#171717]">
+      {/* GOOGLE STRUCTURED DATA */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteStructuredData).replace(
+            /</g,
+            "\\u003c"
+          ),
+        }}
+      />
 
       {/* HERO SECTION */}
       <section className="overflow-hidden bg-[#fffaf6]">
         <div className="mx-auto grid max-w-[1600px] items-center lg:grid-cols-[43%_57%]">
-
           {/* HERO TEXT */}
           <div className="px-6 py-14 sm:px-8 md:px-12 lg:py-24">
-
             <p className="text-xs font-black tracking-[0.3em] text-[#e0000b]">
               WELCOME TO JF SUSHI
             </p>
@@ -91,7 +108,6 @@ export default function HomePage() {
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
-
               <Link
                 href="/products"
                 className="rounded-full bg-[#e0000b] px-7 py-4 text-sm font-bold text-white transition hover:bg-red-800"
@@ -105,7 +121,6 @@ export default function HomePage() {
               >
                 Discover Our Story
               </Link>
-
             </div>
           </div>
 
@@ -117,14 +132,12 @@ export default function HomePage() {
               className="absolute inset-0 h-full w-full object-cover object-center"
             />
           </div>
-
         </div>
       </section>
 
       {/* HIGHLIGHTS */}
       <section className="border-b border-gray-100 bg-white">
         <div className="mx-auto grid max-w-[1500px] gap-5 px-6 py-9 text-center sm:grid-cols-3 sm:gap-0 md:px-12">
-
           {[
             "Asian-Inspired Food",
             "Grocery Retail Supply",
@@ -144,7 +157,6 @@ export default function HomePage() {
               {item}
             </div>
           ))}
-
         </div>
       </section>
 
@@ -154,9 +166,7 @@ export default function HomePage() {
         className="scroll-mt-24 bg-[#fcf9f6] py-16 md:py-20"
       >
         <div className="mx-auto max-w-[1600px] px-5 sm:px-8 md:px-12">
-
           <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-
             <div>
               <p className="text-xs font-black tracking-[0.3em] text-red-600">
                 DISCOVER OUR SELECTION
@@ -171,19 +181,16 @@ export default function HomePage() {
               Discover colorful favorites inspired by
               the incredible variety of Asian cuisine.
             </p>
-
           </div>
 
           {/* FOOD CARDS */}
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-
             {products.map((product) => (
               <Link
                 href={`/products/${product.slug}`}
                 key={product.slug}
                 className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-
                 <div className="aspect-[1.4/1] overflow-hidden bg-gray-100">
                   <img
                     src={product.image}
@@ -194,7 +201,6 @@ export default function HomePage() {
                 </div>
 
                 <div className="p-4">
-
                   <p className="text-[10px] font-black tracking-wide text-red-600">
                     {product.category}
                   </p>
@@ -206,24 +212,19 @@ export default function HomePage() {
                   <p className="mt-3 text-xs font-bold text-red-600">
                     View Product →
                   </p>
-
                 </div>
               </Link>
             ))}
-
           </div>
 
           <div className="mt-10 text-center">
-
             <Link
               href="/products"
               className="inline-flex rounded-full border border-[#e0000b] px-7 py-3 text-sm font-bold text-[#e0000b] transition hover:bg-red-50"
             >
               View All Products →
             </Link>
-
           </div>
-
         </div>
       </section>
 
@@ -233,7 +234,6 @@ export default function HomePage() {
         className="scroll-mt-24 bg-white py-16 md:py-20"
       >
         <div className="mx-auto grid max-w-[1600px] items-center gap-12 px-5 sm:px-8 md:grid-cols-2 md:px-12">
-
           <img
             src="/images/poke.jpg"
             alt="Colorful Asian-inspired poke bowl"
@@ -242,7 +242,6 @@ export default function HomePage() {
           />
 
           <div>
-
             <p className="text-xs font-black tracking-[0.25em] text-red-600">
               GET TO KNOW US
             </p>
@@ -271,9 +270,7 @@ export default function HomePage() {
             >
               Discover Our Story →
             </Link>
-
           </div>
-
         </div>
       </section>
 
@@ -283,11 +280,8 @@ export default function HomePage() {
         className="scroll-mt-24 bg-[#faf8f6] py-16 md:py-20"
       >
         <div className="mx-auto max-w-[1600px] px-5 sm:px-8 md:px-12">
-
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-
             <div>
-
               <p className="text-xs font-black tracking-[0.25em] text-red-600">
                 WHAT WE DO
               </p>
@@ -295,7 +289,6 @@ export default function HomePage() {
               <h2 className="mt-4 text-4xl font-black tracking-tight md:text-5xl">
                 Our Services
               </h2>
-
             </div>
 
             <p className="max-w-md leading-8 text-gray-600">
@@ -303,19 +296,16 @@ export default function HomePage() {
               grocery retail supply, explore the
               business behind JF Sushi.
             </p>
-
           </div>
 
           {/* SERVICES CARDS */}
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-
             {services.map((service) => (
               <Link
                 href="/services"
                 key={service.number}
                 className="group rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
-
                 <p className="text-4xl font-black text-red-600">
                   {service.number}
                 </p>
@@ -331,29 +321,23 @@ export default function HomePage() {
                 <p className="mt-7 text-sm font-black text-red-600">
                   Learn More →
                 </p>
-
               </Link>
             ))}
-
           </div>
 
           <div className="mt-12 text-center">
-
             <Link
               href="/services"
               className="inline-flex rounded-full bg-[#e0000b] px-9 py-4 text-sm font-bold text-white transition hover:bg-red-800"
             >
               Explore All Services →
             </Link>
-
           </div>
-
         </div>
       </section>
 
       {/* FINAL CTA */}
       <section className="bg-[#181818] px-6 py-20 text-center text-white">
-
         <p className="text-xs font-black tracking-[0.25em] text-red-400">
           DISCOVER JF SUSHI
         </p>
@@ -368,7 +352,6 @@ export default function HomePage() {
         </p>
 
         <div className="mt-9 flex flex-wrap justify-center gap-4">
-
           <Link
             href="/products"
             className="rounded-full bg-[#e0000b] px-8 py-4 text-sm font-bold text-white transition hover:bg-red-700"
@@ -382,16 +365,12 @@ export default function HomePage() {
           >
             Our Services →
           </Link>
-
         </div>
-
       </section>
 
       {/* FOOTER */}
       <footer className="bg-[#111111] py-10 text-white">
-
         <div className="mx-auto flex max-w-[1600px] flex-col items-center justify-between gap-5 px-6 text-center md:flex-row md:px-12">
-
           <Link href="/" className="text-2xl font-black">
             JF<span className="text-red-500">SUSHI</span>
           </Link>
@@ -403,11 +382,8 @@ export default function HomePage() {
           <p className="text-xs text-gray-400">
             © 2026 JF Sushi. All rights reserved.
           </p>
-
         </div>
-
       </footer>
-
     </main>
   );
 }
