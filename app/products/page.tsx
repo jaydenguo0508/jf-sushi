@@ -8,7 +8,7 @@ const featuredProducts = [
     category: "SUSHI FAVORITES",
     description:
       "A classic sushi favorite featuring salmon served over seasoned sushi rice.",
-    image: "/images/nigiri-hero.png",
+    image: "/images/salmon-nigiri.jpg",
   },
   {
     name: "Tuna Nigiri",
@@ -16,7 +16,7 @@ const featuredProducts = [
     category: "SUSHI FAVORITES",
     description:
       "A Japanese-inspired favorite featuring tuna served over seasoned sushi rice.",
-    image: "/images/sushi.jpg",
+    image: "/images/tuna-nigiri.jpg",
   },
   {
     name: "California Rolls",
@@ -184,7 +184,7 @@ export default function ProductsPage() {
                     src={product.image}
                     alt={product.name}
                     loading="lazy"
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
                   />
                 </div>
 

@@ -7,8 +7,8 @@ const products = {
   "salmon-nigiri": {
     name: "Salmon Nigiri",
     category: "SUSHI FAVORITES",
-    image: "/images/nigiri-hero.png",
-    position: "35% center",
+    image: "/images/salmon-nigiri.jpg",
+    position: "center",
     description:
       "Beautiful salmon paired with sushi rice. A classic Japanese-inspired favorite known for its elegant presentation and delicious flavor.",
     highlights: [
@@ -21,8 +21,8 @@ const products = {
   "tuna-nigiri": {
     name: "Tuna Nigiri",
     category: "SUSHI FAVORITES",
-    image: "/images/nigiri-hero.png",
-    position: "45% center",
+    image: "/images/tuna-nigiri.jpg",
+    position: "center",
     description:
       "Rich, vibrant tuna served over sushi rice. A timeless Japanese-inspired favorite with a distinctive flavor.",
     highlights: [
@@ -137,14 +137,12 @@ type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-// Generate all nine product routes.
 export function generateStaticParams() {
   return Object.keys(products).map((slug) => ({
     slug,
   }));
 }
 
-// Suspense supports rendering the dynamic product content.
 export default function ProductDetailPage({
   params,
 }: ProductPageProps) {
